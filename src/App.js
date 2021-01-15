@@ -12,7 +12,14 @@ class App extends Component {
   }
 
   onClickSwitchName = () => {
-    console.log('clicked');
+    // # React will not recognize => this.state.persons[0].name = "Maximilian"
+    this.setState({
+      persons: [
+        { name: 'Maximilian', age: 23 },
+        { name: 'Manu', age: 24 },
+        { name: 'Stephanie', age: 25 },
+      ]
+    })
   }
 
   render() {
