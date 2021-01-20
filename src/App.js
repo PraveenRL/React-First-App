@@ -11,7 +11,7 @@ const app = props => {
     ]
   });
 
-  const [otherState, setOtherState] = useState('Some other state');
+  const [otherState] = useState('Some other state');
 
   console.log(personsState, otherState)
 
@@ -25,6 +25,16 @@ const app = props => {
     })
   };
 
+  const onChangeName = (event) => {
+    setPersonsState({
+      persons: [
+        { name: 'Max', age: 23 },
+        { name: event.target.value, age: 24 },
+        { name: 'Stephanie', age: 25 },
+      ]
+    })
+  }
+
   return (
     <div className="App">
       <h1 className="App-title">Welcome to React</h1>
@@ -35,7 +45,8 @@ const app = props => {
       <Person
         name={personsState.persons[1].name}
         age={personsState.persons[1].age}
-        click={() => onClickSwitchName('New Name 2')} > {/* Inefficient */}
+        click={() => onClickSwitchName('New Name 2')}  /* Inefficient */
+        changed={onChangeName}>
         My Hobbies: Racing</Person>
       <Person
         name={personsState.persons[2].name}
