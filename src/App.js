@@ -15,10 +15,10 @@ const app = props => {
 
   console.log(personsState, otherState)
 
-  const onClickSwitchName = () => {
+  const onClickSwitchName = (newName) => {
     setPersonsState({
       persons: [
-        { name: 'Maximilian', age: 23 },
+        { name: newName, age: 23 },
         { name: 'Manu', age: 24 },
         { name: 'Stephanie', age: 25 },
       ]
@@ -28,11 +28,18 @@ const app = props => {
   return (
     <div className="App">
       <h1 className="App-title">Welcome to React</h1>
-      <button onClick={onClickSwitchName}>Switch Name</button>
-      <Person name={personsState.persons[0].name} age={personsState.persons[0].age} />
-      <Person name={personsState.persons[1].name} age={personsState.persons[1].age} >
+      <button onClick={onClickSwitchName.bind(this, 'New Name 1')}>Switch Name</button>
+      <Person
+        name={personsState.persons[0].name}
+        age={personsState.persons[0].age} />
+      <Person
+        name={personsState.persons[1].name}
+        age={personsState.persons[1].age}
+        click={() => onClickSwitchName('New Name 2')} > {/* Inefficient */}
         My Hobbies: Racing</Person>
-      <Person name={personsState.persons[2].name} age={personsState.persons[2].age} />
+      <Person
+        name={personsState.persons[2].name}
+        age={personsState.persons[2].age} />
     </div>
   );
   // return React.createElement('div', {className: 'App' }, React.createElement('h1', null, 'React App'));
