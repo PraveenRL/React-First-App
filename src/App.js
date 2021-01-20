@@ -35,10 +35,22 @@ const app = props => {
     })
   }
 
+  const style = {
+    backgroundColor: 'white',
+    font: 'inherit',
+    border: '1px solid blue',
+    padding: '8px',
+    cursor: 'pointer'
+  }
+
   return (
     <div className="App">
       <h1 className="App-title">Welcome to React</h1>
-      <button onClick={onClickSwitchName.bind(this, 'New Name 1')}>Switch Name</button>
+      <button
+        style={style}
+        onClick={onClickSwitchName.bind(this, 'New Name 1')}>
+        Switch Name
+        </button>
       <Person
         name={personsState.persons[0].name}
         age={personsState.persons[0].age} />
