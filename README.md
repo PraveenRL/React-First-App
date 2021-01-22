@@ -1,3 +1,3 @@
-Current - 54 - Handling Dynamic Content 'The Javascript way'
+Current - 56 - Outputting Lists
 
-Next - 55
+Next - 57
