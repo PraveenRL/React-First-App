@@ -48,6 +48,27 @@ class App extends Component {
       cursor: 'pointer'
     }
 
+    let persons = null;
+
+    if (this.state.showPersons) {
+      persons = (
+        <div>
+          <Person
+            name={this.state.persons[0].name}
+            age={this.state.persons[0].age} />
+          <Person
+            name={this.state.persons[1].name}
+            age={this.state.persons[1].age}
+            click={this.onClickSwitchName.bind(this, 'New Name 1')}
+            changed={this.onChangeName}>
+            My Hobbies: Racing</Person>
+          <Person
+            name={this.state.persons[2].name}
+            age={this.state.persons[2].age} />
+        </div>
+      );
+    }
+
     return (
       <div className="App" >
         <h1 className="App-title">Welcome to React</h1>
@@ -57,23 +78,7 @@ class App extends Component {
           Toggle Persons
         </button>
 
-        {
-          (this.state.showPersons) ?
-            <div>
-              <Person
-                name={this.state.persons[0].name}
-                age={this.state.persons[0].age} />
-              <Person
-                name={this.state.persons[1].name}
-                age={this.state.persons[1].age}
-                click={this.onClickSwitchName.bind(this, 'New Name 1')}
-                changed={this.onChangeName}>
-                My Hobbies: Racing</Person>
-              <Person
-                name={this.state.persons[2].name}
-                age={this.state.persons[2].age} />
-            </div> : null
-        }
+        {persons}
       </div>
     );
   }

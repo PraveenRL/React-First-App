@@ -1,3 +1,3 @@
-Current - 53 - Rendering Content Conditionally
+Current - 54 - Handling Dynamic Content 'The Javascript way'
 
-Next - 54
+Next - 55
